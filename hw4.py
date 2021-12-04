@@ -1,6 +1,6 @@
 # loops
 
-# task2 flip the string
+# task 2 flip the string
 # s = str(input("Enter string: "))
 # while len(s) == 0:
 #     print("Incorrect Input")
