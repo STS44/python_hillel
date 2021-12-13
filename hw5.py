@@ -68,8 +68,8 @@ import random
 
 # TASK 5 CREATE DICTIONARY
 # LOWER_BOUND_KEY = 1
-# UPPER_BOUND_KEY = 16
+# UPPER_BOUND_KEY = 15
 # dictionary = {}
-# for key in range(LOWER_BOUND_KEY, UPPER_BOUND_KEY):
+# for key in range(LOWER_BOUND_KEY, UPPER_BOUND_KEY+1):
 #     dictionary[key] = key**2
 # print("Dictionary: {d}".format(d=dictionary))
