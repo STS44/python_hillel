@@ -41,9 +41,7 @@ from collections import defaultdict
 # my_list = [1, 2, 3, 4]
 # print(f"My list: {my_list}")
 # my_list += [my_list.pop(0)]
-# new_list = []
-# for item in my_list:
-#     new_list.append(item)
+# new_list = [item for item in my_list]
 # print(f"New list: {new_list}")
 
 # 5. Дан список my_list. В ЭТОМ списке первый элемент переставить на последнее место.
@@ -115,42 +113,31 @@ from collections import defaultdict
 # а) Определить возраст самого молодого человека и поместить в новый список имена всех людей,
 # чей возраст совпадает с этим минимальным возрастом.
 
-# dict_list = [{"name": "John", "age": 15}, {"name": "Jacob", "age": 25}, {"name": "Jessica", "age": 35}, {"name": "Jack", "age": 45}]
+# dict_list = [{"name": "John", "age": 15}, {"name": "Jacob", "age": 25}, {"name": "Jessica", "age": 35},
+# {"name": "Jack", "age": 45}]
 # print(f"list of dictionaries Persons: {dict_list}")
-# age_list = []
-# for key in dict_list:
-#     age_list.append(key["age"])
-#     min_age = min(age_list)
-# name_min_age = []
-# for item in dict_list:
-#     if item["age"] == min_age:
-#         name_min_age.append(item["name"])
+# age_list = [key["age"] for key in dict_list]
+# min_age = min(age_list)
+# name_min_age = [item["name"] for item in dict_list if item["age"] == min_age]
 # print(f"Name of the youngest person in list: {name_min_age}")
 
 # б) Определить самое длинное имя и поместить в новый список имена всех людей,
 # чье имя по длине совпадает с этой длиной.
 
-# dict_list = [{"name": "John", "age": 15}, {"name": "Jacob", "age": 25}, {"name": "Jessica", "age": 35}, {"name": "Jack", "age": 45}]
+# dict_list = [{"name": "John", "age": 15}, {"name": "Jacob", "age": 25}, {"name": "Jessica", "age": 35},
+#              {"name": "Jack", "age": 45}]
 # print(f"list of dictionaries Persons: {dict_list}")
-# name_list = []
-# for key in dict_list:
-#     name_list.append(key["name"])
-#     max_name = max(name_list, key=len)
-# name_list_res = []
-# for item in dict_list:
-#     if len(item["name"]) == len(max_name):
-#         name_list_res.append(item["name"])
+# name_list = [key["name"] for key in dict_list]
+# max_name = max(name_list, key=len)
+# name_list_res = [item["name"] for item in dict_list if len(item["name"]) == len(max_name)]
 # print(f"Names of persons whose name is as long as the longest in list: {name_list_res}")
 
 # в) Посчитать среднее количество лет всех людей из списка.
 
-# dict_list = [{"name": "John", "age": 15}, {"name": "Jacob", "age": 25}, {"name": "Jessica", "age": 35}, {"name": "Jack", "age": 45}]
+# dict_list = [{"name": "John", "age": 15}, {"name": "Jacob", "age": 25}, {"name": "Jessica", "age": 35},
+#              {"name": "Jack", "age": 45}]
 # print(f"list of dictionaries Persons: {dict_list}")
-# my_list = []
-# for key in dict_list:
-#     my_list.append(key["age"])
+# my_list = [key["age"] for key in dict_list]
 # result = sum(my_list) / float(len(my_list))
 # print(f"Average age of all people in list: {result}")
-
-
 
