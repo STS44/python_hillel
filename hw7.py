@@ -117,8 +117,7 @@ from collections import defaultdict
 # {"name": "Jack", "age": 45}]
 # print(f"list of dictionaries Persons: {dict_list}")
 # age_list = [key["age"] for key in dict_list]
-# min_age = min(age_list)
-# name_min_age = [item["name"] for item in dict_list if item["age"] == min_age]
+# name_min_age = [item["name"] for item in dict_list if item["age"] == min(age_list)]
 # print(f"Name of the youngest person in list: {name_min_age}")
 
 # б) Определить самое длинное имя и поместить в новый список имена всех людей,
@@ -128,8 +127,7 @@ from collections import defaultdict
 #              {"name": "Jack", "age": 45}]
 # print(f"list of dictionaries Persons: {dict_list}")
 # name_list = [key["name"] for key in dict_list]
-# max_name = max(name_list, key=len)
-# name_list_res = [item["name"] for item in dict_list if len(item["name"]) == len(max_name)]
+# name_list_res = [item["name"] for item in dict_list if len(item["name"]) == len(max(name_list, key=len))]
 # print(f"Names of persons whose name is as long as the longest in list: {name_list_res}")
 
 # в) Посчитать среднее количество лет всех людей из списка.
