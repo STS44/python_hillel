@@ -50,7 +50,6 @@ if input_value in my_set:
     print(f"Number is in set")
 else:
     print(f"Number isn't in set")
-    print(type(input_value))
 
 # Task 5 Variant 1
 set_1 = {123, -55, 0.33, 404, 0, -8.67, 6.25, 602, -0.88, 78, 55}
