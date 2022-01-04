@@ -19,37 +19,43 @@ def get_list_symbols_str_occur_once(my_str):
     list_symbols_occur_once = [symbol for symbol in my_str if my_str.count(symbol) == 1]
     return list_symbols_occur_once
 
+# task 5
+def get_list_common_symbols(first_str, second_str):
+    list_common_symbols = [symbol for symbol in first_str if symbol in second_str]
+    return list_common_symbols
+
 def get_list_unique_common_symbols(first_str, second_str):
-    def get_list_common_symbols(first_str, second_str):
-        list_common_symbols = [symbol for symbol in first_str if symbol in second_str]
-        return list_common_symbols
     generate_list_common_symbols = get_list_common_symbols(first_str, second_str)
     generate_list_common_symbols = list(set(generate_list_common_symbols))
     return generate_list_common_symbols
 
+# task 6
+def get_string_first_symbols_occur_once(string_first):
+    list_string_first = [symbol for symbol in string_first if string_first.count(symbol) == 1]
+    string_first = "".join(list_string_first)
+    return string_first
+
+def get_string_second_symbols_occur_once(string_second):
+    list_string_second = [symbol for symbol in string_second if string_second.count(symbol) == 1]
+    string_second = "".join(list_string_second)
+    return string_second
+
 def get_list_intersected_symbols_occur_once(string_first, string_second):
-    def get_string_first_symbols_occur_once(string_first):
-        list_string_first = [symbol for symbol in string_first if string_first.count(symbol) == 1]
-        string_first = "".join(list_string_first)
-        return string_first
-    def get_string_second_symbols_occur_once(string_second):
-        list_string_second = [symbol for symbol in string_second if string_second.count(symbol) == 1]
-        string_second = "".join(list_string_second)
-        return string_second
     generate_new_string_first = get_string_first_symbols_occur_once(string_first)
     generate_new_string_second = get_string_second_symbols_occur_once(string_second)
     list_intersected_symbols = [element for element in generate_new_string_first if element in
-                              generate_new_string_second]
+                                generate_new_string_second]
     return list_intersected_symbols
 
+# task 7
+def get_random_int_str_format(min_integer, max_integer):
+    random_int_str_format = str(random.randint(min_integer, max_integer))
+    return random_int_str_format
+def get_random_string(min_length, max_length):
+    letters = string.ascii_lowercase
+    random_string = "".join(random.choice(letters) for item in range(random.randint(min_length, max_length)))
+    return random_string
 def generate_email(names, domains):
-    def get_random_int_str_format(min_integer, max_integer):
-        random_int_str_format = str(random.randint(min_integer, max_integer))
-        return random_int_str_format
-    def get_random_string(min_length, max_length):
-        letters = string.ascii_lowercase
-        random_string = "".join(random.choice(letters) for item in range(random.randint(min_length, max_length)))
-        return random_string
     generate_random_int_str_format = get_random_int_str_format(min_integer, max_integer)
     generate_random_string = get_random_string(min_length, max_length)
     choose_name_randomly = "".join(random.choice(names))
