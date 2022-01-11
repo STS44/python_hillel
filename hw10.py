@@ -32,7 +32,7 @@ def get_modified_dates_list(current_format, new_format, dates_list):
     authors_data_modified = []
     for itm in dates_list:
         itm = itm.split()
-        itm[0] = ''.join(w_itm for w_itm in itm[0] if w_itm.isdigit())
+        itm[0] = itm[0][:-2]
         itm = " ".join(itm)
         itm = datetime.strptime(itm, "%d %B %Y")
         itm = datetime.strftime(itm, "%d/%m/%Y")
