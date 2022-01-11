@@ -32,7 +32,7 @@ def get_modified_dates_list(current_format, new_format, dates_list):
     authors_data_modified = []
     for itm in dates_list:
         itm = itm.split()
-        itm[0] = itm[0][0]
+        itm[0] = ''.join(w_itm for w_itm in itm[0] if w_itm.isdigit())
         itm = " ".join(itm)
         itm = datetime.strptime(itm, "%d %B %Y")
         itm = datetime.strftime(itm, "%d/%m/%Y")
@@ -75,6 +75,8 @@ key_date = "date_original"
 key_date_modified = "date_modified"
 dictionaries_list = get_dictionaries_list(key_date, key_date_modified, dates_list, dates_list_modified)
 print(f"List of dictionaries with dates: {dictionaries_list}")
+
+
 
 
 
