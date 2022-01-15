@@ -1,6 +1,7 @@
 # import block
 import random
 import string
+from string import ascii_lowercase
 
 # functions block
 def get_list_strings(my_list):
@@ -29,6 +30,11 @@ def get_list_unique_common_symbols(first_str, second_str):
     generate_list_common_symbols = list(set(generate_list_common_symbols))
     return generate_list_common_symbols
 
+# variant 2
+def get_common_symbols(first_str, second_str):
+    generate_common_symbols = list(set(first_str).intersection(set(second_str)))
+    return generate_common_symbols
+
 # task 6
 def get_string_first_symbols_occur_once(string_first):
     list_string_first = [symbol for symbol in string_first if string_first.count(symbol) == 1]
@@ -47,6 +53,18 @@ def get_list_intersected_symbols_occur_once(string_first, string_second):
                                 generate_new_string_second]
     return list_intersected_symbols
 
+# variant 2
+def get_common_symbols(string_first, string_second):
+    generate_common_symbols = list(set(string_first).intersection(set(string_second)))
+    return generate_common_symbols
+
+def get_common_unique_symbols(string_first, string_second):
+    new_list = []
+    for symbol in get_common_symbols(string_first, string_second):
+        if string_first.count(symbol) == string_second.count(symbol) == 1:
+            new_list.append(symbol)
+    return new_list
+
 # task 7
 def get_random_int_str_format(min_integer, max_integer):
     random_int_str_format = str(random.randint(min_integer, max_integer))
@@ -63,6 +81,17 @@ def generate_email(names, domains):
     email_str = f"e-mail: {choose_name_randomly}.{generate_random_int_str_format}@{generate_random_string}." \
                 f"{choose_domain_randomly}"
     return email_str
+
+# variant 2
+
+def get_email(domains, names):
+    name = random.choice(names)
+    domain = random.choice(domains)
+    len_str = random.randint(5, 7)
+    rand_int = random.randint(100, 999)
+    rand_str = "".join([random.choice(ascii_lowercase) for _ in range(len_str)])
+    e_mail = f"{name}.{rand_int}@{rand_str}.{domain}"
+    return e_mail
 
 # functions call block
 # 3. Написать функцию которой передается один параметр - список строк my_list в
@@ -102,6 +131,10 @@ second_str = "qweeeeeee123"
 generate_list_unique_common_symbols = get_list_unique_common_symbols(first_str, second_str)
 print(f"list of symbols that occur in both strings at least once: {generate_list_unique_common_symbols}")
 
+# variant 5
+result_5 = get_common_symbols(first_str, second_str)
+print(f"List of common symbols: {result_5}")
+
 # 6. Написать функцию которой передается два параметра - две строки.
 # Функция возвращает список в который поместить те символы, которые есть в обеих строках,
 # но в каждой только по одному разу.
@@ -111,6 +144,11 @@ string_second = "qweeeeeeerty123"
 generate_list_intersected_symbols_occur_once = get_list_intersected_symbols_occur_once(string_first, string_second)
 print(f"list of symbols common for both strings and occur only once in each : "
       f"{generate_list_intersected_symbols_occur_once}")
+
+# variant 2
+result_6 = get_common_unique_symbols(string_first, string_second)
+print(f"list of common symbols that occur once in each string : "
+      f"{result_6}")
 
 # 7*. Даны списки names и domains (создать самостоятельно).
 # Написать функцию create_email для генерирования e-mail в формате:
@@ -129,6 +167,10 @@ min_integer = 100
 max_integer = 999
 create_email = generate_email(names, domains)
 print(create_email)
+
+# variant 2
+result_7 = get_email(domains, names)
+print(result_7)
 
 
 
