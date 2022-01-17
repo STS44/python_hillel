@@ -21,7 +21,7 @@ def create_random_value(random_int, random_float, random_bool):
     random_value = random.choice([random_int, random_float, random_bool])
     return random_value
 
-def create_random_dict(keys_num):
+def create_random_dict(keys_num, string_len, random_int, random_float, random_bool):
     random_dict = {create_random_key(string_len): create_random_value(random_int, random_float, random_bool)
                    for dict_item in range(keys_num)}
     return random_dict
@@ -35,27 +35,33 @@ def create_random_table(rows_num, columns_num, table_value):
 def create_file_dir(dirname):
     os.makedirs(dirname, exist_ok=True)
 
-def create_and_write_txt_file(absolute_file_path):
+def create_absolute_file_path(dirname, filename):
+    relative_file_path = os.path.join(dirname, filename)
+    return os.path.abspath(relative_file_path)
+
+def create_and_write_txt_file(absolute_file_path, str_len):
     with open(absolute_file_path, "w") as new_txt_file:
         new_txt_file.write(create_random_string(str_len))
 
-def create_and_write_json_file(absolute_file_path):
+def create_and_write_json_file(absolute_file_path, keys_num, string_len, random_int, random_float, random_bool):
     with open(absolute_file_path, "w") as new_json_file:
-        json.dump(create_random_dict(keys_num), new_json_file, indent=1)
+        json.dump(create_random_dict(keys_num, string_len, random_int, random_float, random_bool),
+                  new_json_file, indent=1)
 
-def create_and_write_csv_file(absolute_file_path):
+def create_and_write_csv_file(absolute_file_path, rows_num, columns_num, table_value):
     with open(absolute_file_path, "w") as new_csv_file:
         table_writer = csv.writer(new_csv_file, delimiter=";")
         table_writer.writerows(create_random_table(rows_num, columns_num, table_value))
 
-def generate_and_write_file(absolute_file_path):
+def generate_and_write_file(absolute_file_path, dirname, str_len, keys_num, string_len, random_int, random_float,
+                            random_bool, rows_num, columns_num, table_value):
     create_file_dir(dirname)
     if "txt" in absolute_file_path:
-        create_and_write_txt_file(absolute_file_path)
+        create_and_write_txt_file(absolute_file_path, str_len)
     elif "json" in absolute_file_path:
-        create_and_write_json_file(absolute_file_path)
+        create_and_write_json_file(absolute_file_path, keys_num, string_len, random_int, random_float, random_bool)
     elif "csv" in absolute_file_path:
-        create_and_write_csv_file(absolute_file_path)
+        create_and_write_csv_file(absolute_file_path, rows_num, columns_num, table_value)
     else:
         print(f"Unsupported file format")
 
@@ -79,7 +85,7 @@ string_len = 5
 random_int = random.randint(-100, 100)
 random_float = random.random()
 random_bool = random.choice([True, False])
-result_2 = create_random_dict(keys_num)
+result_2 = create_random_dict(keys_num, string_len, random_int, random_float, random_bool)
 print(result_2)
 
 # Функция 3. Создает данные для записи в файл csv.
@@ -98,9 +104,9 @@ print(result_3)
 # Если расширение не соответствует заданным, то вывести текст "Unsupported file format"
 dirname = "Homework11Task4"
 filename = "task4.pdf"
-relative_file_path = os.path.join(dirname, filename)
-absolute_file_path = os.path.abspath(relative_file_path)
-generate_and_write_file(absolute_file_path)
+absolute_file_path = create_absolute_file_path(dirname, filename)
+result_4 = generate_and_write_file(absolute_file_path, dirname, str_len, keys_num, string_len, random_int, random_float,
+                            random_bool, rows_num, columns_num, table_value)
 
 
 
