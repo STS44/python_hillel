@@ -70,7 +70,7 @@ def generate_and_write_file(absolute_file_path, dirname, str_len, keys_num, stri
 # Функция генерирует и возвращает строку случайной длинны (не менее 100 но не более 1000 символов).
 # В строке должны присутствовать большие и маленькие буквы английского алфавита, цифры, пробелы.
 str_len = random.randint(100, 1000)
-result_1 = create_random_string(str_len)
+result_1 = create_random_string(str_len=str_len)
 print(result_1)
 
 # Функция 2. Создает данные для записи в файл json.
@@ -85,7 +85,8 @@ string_len = 5
 random_int = random.randint(-100, 100)
 random_float = random.random()
 random_bool = random.choice([True, False])
-result_2 = create_random_dict(keys_num, string_len, random_int, random_float, random_bool)
+result_2 = create_random_dict(keys_num=keys_num, string_len=string_len, random_int=random_int,
+                              random_float=random_float, random_bool=random_bool)
 print(result_2)
 
 # Функция 3. Создает данные для записи в файл csv.
@@ -96,7 +97,7 @@ print(result_2)
 rows_num = random.randint(3, 10)
 columns_num = random.randint(3, 10)
 table_value = random.choice([0, 1])
-result_3 = create_random_table(rows_num, columns_num, table_value)
+result_3 = create_random_table(rows_num=rows_num, columns_num=columns_num, table_value=table_value)
 print(result_3)
 
 # Функция 4. Написать функцию generate_and_write_file которая принимает один параметр - полный путь к файлу.
@@ -105,8 +106,10 @@ print(result_3)
 dirname = "Homework11Task4"
 filename = "task4.pdf"
 absolute_file_path = create_absolute_file_path(dirname, filename)
-result_4 = generate_and_write_file(absolute_file_path, dirname, str_len, keys_num, string_len, random_int, random_float,
-                            random_bool, rows_num, columns_num, table_value)
+result_4 = generate_and_write_file(absolute_file_path=absolute_file_path, dirname=dirname, str_len=str_len,
+                                   keys_num=keys_num, string_len=string_len, random_int=random_int,
+                                   random_float=random_float, random_bool=random_bool, rows_num=rows_num,
+                                   columns_num=columns_num, table_value=table_value)
 
 
 
