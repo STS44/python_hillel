@@ -16,10 +16,6 @@ def sort_by_surname(item):
     surname = "".join(item["name"].split()[-1])
     return surname
 
-def sort_data_by_surname(read_json_file):
-    sorted_data_by_surname = sorted(read_json_file, key=sort_by_surname)
-    return sorted_data_by_surname
-
 # task 3
 def sort_by_years_of_death(item, pattern = r"[0-9]+"):
     if "BC" in item["years"]:
@@ -28,18 +24,10 @@ def sort_by_years_of_death(item, pattern = r"[0-9]+"):
         year_of_death = int(re.findall(pattern, item["years"])[-1])
     return year_of_death
 
-def sort_data_by_years_of_death(read_json_file):
-    sorted_data_by_years_of_death = sorted(read_json_file, key=sort_by_years_of_death)
-    return sorted_data_by_years_of_death
-
 # task 4
 def sort_by_number_of_words(item):
     number_of_words = len(item["text"].split())
     return number_of_words
-
-def sort_data_by_number_of_words(read_json_file):
-    sort_data_by_number_of_words = sorted(read_json_file, key=sort_by_number_of_words)
-    return sort_data_by_number_of_words
 
 # task 5
 def create_and_write_json_file(dirname, new_filename, param, read_json_file):
@@ -61,14 +49,11 @@ print(read_json_file)
 # 2. Написать функцию сортировки данных по ФАМИЛИИ в поле "name" (у тех у кого она есть).
 # Например для Rene Descartes фамилия это Descartes, у Pierre de Fermat - Fermat и т.д.
 # Если фамилии нет, то использовать имя, например Euclid.
-print(sort_data_by_surname(read_json_file))
 
 # 3. Написать функцию сортировки по дате смерти из поля "years".
 # Обратите внимание на сокращение BC. - это означает до н.э.
-print(sort_data_by_years_of_death(read_json_file))
 
 # 4. Написать функцию сортировки по количеству слов в поле "text"
-print(sort_data_by_number_of_words(read_json_file))
 
 # 5. Написать функцию для записи отсортированных данных в файл. Параметры - имя файла для записи, параметр сортировки.
 # Пример использования:
