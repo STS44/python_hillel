@@ -3,7 +3,6 @@ import json
 import random
 from argparse import ArgumentParser
 
-
 # functions block
 
 def read_data_from_config(filename="config.json"):
@@ -172,7 +171,6 @@ def clear_state():
         json.dump(state_data, state_json, indent=1)
     return state_data
 
-
 # functions call block
 
 # CLI
@@ -181,7 +179,6 @@ args = ArgumentParser()
 args.add_argument("action", nargs="?", type=str)
 args.add_argument("count", nargs="?", type=str)
 args = vars(args.parse_args())
-
 
 if args["action"] == "RATE":
     get_current_rate()
