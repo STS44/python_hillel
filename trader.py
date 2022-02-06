@@ -204,7 +204,6 @@ def clear_state():
     return state_data
 
 # functions call block
-
 # CLI
 
 args = ArgumentParser()
